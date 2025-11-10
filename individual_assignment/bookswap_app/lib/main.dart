@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'services/book_service.dart';
+//import 'services/auth_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,58 +12,58 @@ void main() async {
   runApp(const MyApp());
 }
 
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'BookSwap',
+      home: TestAuth(), // change to your first screen
+    );
+  }
+}
+
 class TestAuth extends StatefulWidget {
   const TestAuth({super.key});
+
   @override
   State<TestAuth> createState() => _TestAuthState();
 }
-
 class _TestAuthState extends State<TestAuth> {
-  final auth = AuthService();
-  final emailController = TextEditingController();
-  final passController = TextEditingController();
-  final nameController = TextEditingController();
-
-  String message = '';
+  //final AuthService _authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Auth Test')),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            TextField(controller: nameController, decoration: const InputDecoration(labelText: 'Name')),
-            TextField(controller: emailController, decoration: const InputDecoration(labelText: 'Email')),
-            TextField(controller: passController, decoration: const InputDecoration(labelText: 'Password'), obscureText: true),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () async {
-                try {
-                  await auth.signUp(emailController.text, passController.text, nameController.text);
-                  setState(() => message = "User created! Check your email for verification.");
-                } catch (e) {
-                  setState(() => message = e.toString());
-                }
-              },
-              child: const Text('Sign Up'),
-            ),
-            ElevatedButton(
-              onPressed: () async {
-                try {
-                  await auth.login(emailController.text, passController.text);
-                  setState(() => message = "Logged in!");
-                } catch (e) {
-                  setState(() => message = e.toString());
-                }
-              },
-              child: const Text('Login'),
-            ),
-            Text(message),
-          ],
-        ),
-      ),
+      appBar: AppBar(title: const Text("Test Auth")),
+      body: Center(child: Text("Welcome to BookSwap")),
     );
   }
 }
+class BrowseListings extends StatelessWidget {
+  final bookService = BookService();
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder(
+      stream: bookService.browseListings(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) return const Center(child: CircularProgressIndicator());
+        final docs = snapshot.data!.docs;
+        return ListView.builder(
+          itemCount: docs.length,
+          itemBuilder: (context, i) {
+            final d = docs[i].data() as Map<String, dynamic>;
+            return ListTile(
+              title: Text(d['title']),
+              subtitle: Text(d['author']),
+              trailing: Text(d['condition']),
+            );
+          },
+        );
+      },
+    );
+  }
+}
+
