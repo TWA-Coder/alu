@@ -1,17 +1,23 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
+import '../models/book.dart';
 
 class BookService {
-  final CollectionReference booksCollection =
+  final CollectionReference booksRef =
       FirebaseFirestore.instance.collection('books');
 
-  Stream<QuerySnapshot> getBooks() {
-    return booksCollection.snapshots();
+  Future<void> addBook(Book book) async {
+    await booksRef.add(book.toMap());
   }
 
-  Future<void> addBook(Map<String, dynamic> bookData) async {
-    await booksCollection.add(bookData);
+  Stream<List<Book>> getBooks() {
+    return booksRef.orderBy('postedAt', descending: true).snapshots().map(
+      (snapshot) {
+        return snapshot.docs
+            .map((doc) => Book.fromMap(doc.id, doc.data() as Map<String, dynamic>))
+            .toList();
+      },
+    );
   }
 }
+
 

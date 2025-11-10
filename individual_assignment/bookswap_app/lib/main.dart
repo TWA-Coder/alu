@@ -1,69 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'firebase_options.dart';
-import 'services/book_service.dart';
-//import 'services/auth_service.dart';
+import 'screens/login_screen.dart';
+import 'screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(const BookSwapApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class BookSwapApp extends StatelessWidget {
+  const BookSwapApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'BookSwap',
-      home: TestAuth(), // change to your first screen
-    );
-  }
-}
-
-class TestAuth extends StatefulWidget {
-  const TestAuth({super.key});
-
-  @override
-  State<TestAuth> createState() => _TestAuthState();
-}
-class _TestAuthState extends State<TestAuth> {
-  //final AuthService _authService = AuthService();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Test Auth")),
-      body: Center(child: Text("Welcome to BookSwap")),
-    );
-  }
-}
-class BrowseListings extends StatelessWidget {
-  final bookService = BookService();
-
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: bookService.browseListings(),
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) return const Center(child: CircularProgressIndicator());
-        final docs = snapshot.data!.docs;
-        return ListView.builder(
-          itemCount: docs.length,
-          itemBuilder: (context, i) {
-            final d = docs[i].data() as Map<String, dynamic>;
-            return ListTile(
-              title: Text(d['title']),
-              subtitle: Text(d['author']),
-              trailing: Text(d['condition']),
+      theme: ThemeData(primarySwatch: Colors.indigo),
+      // 👇 This automatically switches between LoginScreen and HomeScreen
+      home: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Scaffold(
+              body: Center(child: CircularProgressIndicator()),
             );
-          },
-        );
-      },
+          } else if (snapshot.hasData) {
+            return const HomeScreen(); 
+          } else {
+            return const LoginScreen(); 
+          }
+        },
+      ),
     );
   }
 }
+
+
+
 
