@@ -15,6 +15,7 @@
         "firebase_crashlytics",
         "firebase_performance",
         "firebase_ui_auth",
+        "firebase_ui_oauth_google",
         "flutter",
         "google_fonts",
         "provider"
@@ -83,6 +84,16 @@
       ]
     },
     {
+      "name": "firebase_ui_oauth_google",
+      "version": "1.4.3",
+      "dependencies": [
+        "firebase_auth",
+        "firebase_ui_oauth",
+        "flutter",
+        "google_sign_in"
+      ]
+    },
+    {
       "name": "google_fonts",
       "version": "6.3.2",
       "dependencies": [
@@ -118,11 +129,12 @@
       ]
     },
     {
-      "name": "firebase_auth",
-      "version": "5.7.0",
+      "name": "cloud_firestore",
+      "version": "5.6.12",
       "dependencies": [
-        "firebase_auth_platform_interface",
-        "firebase_auth_web",
+        "cloud_firestore_platform_interface",
+        "cloud_firestore_web",
+        "collection",
         "firebase_core",
         "firebase_core_platform_interface",
         "flutter",
@@ -130,12 +142,11 @@
       ]
     },
     {
-      "name": "cloud_firestore",
-      "version": "5.6.12",
+      "name": "firebase_auth",
+      "version": "5.7.0",
       "dependencies": [
-        "cloud_firestore_platform_interface",
-        "cloud_firestore_web",
-        "collection",
+        "firebase_auth_platform_interface",
+        "firebase_auth_web",
         "firebase_core",
         "firebase_core_platform_interface",
         "flutter",
@@ -328,6 +339,29 @@
       ]
     },
     {
+      "name": "google_sign_in",
+      "version": "6.3.0",
+      "dependencies": [
+        "flutter",
+        "google_sign_in_android",
+        "google_sign_in_ios",
+        "google_sign_in_platform_interface",
+        "google_sign_in_web"
+      ]
+    },
+    {
+      "name": "firebase_ui_oauth",
+      "version": "1.7.1",
+      "dependencies": [
+        "desktop_webview_auth",
+        "firebase_auth",
+        "firebase_ui_auth",
+        "firebase_ui_shared",
+        "flutter",
+        "flutter_svg"
+      ]
+    },
+    {
       "name": "path_provider",
       "version": "2.1.5",
       "dependencies": [
@@ -373,15 +407,10 @@
       ]
     },
     {
-      "name": "firebase_ui_oauth",
-      "version": "1.7.1",
+      "name": "firebase_ui_shared",
+      "version": "1.4.2",
       "dependencies": [
-        "desktop_webview_auth",
-        "firebase_auth",
-        "firebase_ui_auth",
-        "firebase_ui_shared",
-        "flutter",
-        "flutter_svg"
+        "flutter"
       ]
     },
     {
@@ -399,29 +428,13 @@
       "dependencies": []
     },
     {
-      "name": "firebase_auth_web",
-      "version": "5.15.3",
+      "name": "app_links",
+      "version": "6.4.1",
       "dependencies": [
-        "firebase_auth_platform_interface",
-        "firebase_core",
-        "firebase_core_web",
-        "flutter",
-        "flutter_web_plugins",
-        "http_parser",
-        "meta",
-        "web"
-      ]
-    },
-    {
-      "name": "firebase_auth_platform_interface",
-      "version": "7.7.3",
-      "dependencies": [
-        "_flutterfire_internals",
-        "collection",
-        "firebase_core",
-        "flutter",
-        "meta",
-        "plugin_platform_interface"
+        "app_links_linux",
+        "app_links_platform_interface",
+        "app_links_web",
+        "flutter"
       ]
     },
     {
@@ -440,6 +453,32 @@
     {
       "name": "cloud_firestore_platform_interface",
       "version": "6.6.12",
+      "dependencies": [
+        "_flutterfire_internals",
+        "collection",
+        "firebase_core",
+        "flutter",
+        "meta",
+        "plugin_platform_interface"
+      ]
+    },
+    {
+      "name": "firebase_auth_web",
+      "version": "5.15.3",
+      "dependencies": [
+        "firebase_auth_platform_interface",
+        "firebase_core",
+        "firebase_core_web",
+        "flutter",
+        "flutter_web_plugins",
+        "http_parser",
+        "meta",
+        "web"
+      ]
+    },
+    {
+      "name": "firebase_auth_platform_interface",
+      "version": "7.7.3",
       "dependencies": [
         "_flutterfire_internals",
         "collection",
@@ -565,6 +604,64 @@
       "dependencies": []
     },
     {
+      "name": "google_sign_in_web",
+      "version": "0.12.4+4",
+      "dependencies": [
+        "flutter",
+        "flutter_web_plugins",
+        "google_identity_services_web",
+        "google_sign_in_platform_interface",
+        "http",
+        "web"
+      ]
+    },
+    {
+      "name": "google_sign_in_platform_interface",
+      "version": "2.5.0",
+      "dependencies": [
+        "flutter",
+        "plugin_platform_interface"
+      ]
+    },
+    {
+      "name": "google_sign_in_ios",
+      "version": "5.9.0",
+      "dependencies": [
+        "flutter",
+        "google_sign_in_platform_interface"
+      ]
+    },
+    {
+      "name": "google_sign_in_android",
+      "version": "6.2.1",
+      "dependencies": [
+        "flutter",
+        "google_sign_in_platform_interface"
+      ]
+    },
+    {
+      "name": "flutter_svg",
+      "version": "2.2.2",
+      "dependencies": [
+        "flutter",
+        "http",
+        "vector_graphics",
+        "vector_graphics_codec",
+        "vector_graphics_compiler"
+      ]
+    },
+    {
+      "name": "desktop_webview_auth",
+      "version": "0.0.16",
+      "dependencies": [
+        "crypto",
+        "flutter",
+        "flutter_web_plugins",
+        "http",
+        "plugin_platform_interface"
+      ]
+    },
+    {
       "name": "path_provider_windows",
       "version": "2.3.0",
       "dependencies": [
@@ -637,46 +734,6 @@
       ]
     },
     {
-      "name": "vm_service",
-      "version": "15.0.2",
-      "dependencies": []
-    },
-    {
-      "name": "ffi",
-      "version": "2.1.4",
-      "dependencies": []
-    },
-    {
-      "name": "platform",
-      "version": "3.1.6",
-      "dependencies": []
-    },
-    {
-      "name": "xdg_directories",
-      "version": "1.1.0",
-      "dependencies": [
-        "meta",
-        "path"
-      ]
-    },
-    {
-      "name": "firebase_ui_shared",
-      "version": "1.4.2",
-      "dependencies": [
-        "flutter"
-      ]
-    },
-    {
-      "name": "app_links",
-      "version": "6.4.1",
-      "dependencies": [
-        "app_links_linux",
-        "app_links_platform_interface",
-        "app_links_web",
-        "flutter"
-      ]
-    },
-    {
       "name": "app_links_web",
       "version": "1.0.4",
       "dependencies": [
@@ -704,40 +761,17 @@
       ]
     },
     {
-      "name": "gtk",
-      "version": "2.1.0",
-      "dependencies": [
-        "ffi",
-        "flutter",
-        "meta"
-      ]
-    },
-    {
-      "name": "desktop_webview_auth",
-      "version": "0.0.16",
-      "dependencies": [
-        "crypto",
-        "flutter",
-        "flutter_web_plugins",
-        "http",
-        "plugin_platform_interface"
-      ]
-    },
-    {
-      "name": "flutter_svg",
-      "version": "2.2.2",
-      "dependencies": [
-        "flutter",
-        "http",
-        "vector_graphics",
-        "vector_graphics_codec",
-        "vector_graphics_compiler"
-      ]
-    },
-    {
-      "name": "vector_graphics_codec",
-      "version": "1.1.13",
+      "name": "vm_service",
+      "version": "15.0.2",
       "dependencies": []
+    },
+    {
+      "name": "google_identity_services_web",
+      "version": "0.3.3+1",
+      "dependencies": [
+        "meta",
+        "web"
+      ]
     },
     {
       "name": "vector_graphics_compiler",
@@ -752,12 +786,9 @@
       ]
     },
     {
-      "name": "path_parsing",
-      "version": "1.1.0",
-      "dependencies": [
-        "meta",
-        "vector_math"
-      ]
+      "name": "vector_graphics_codec",
+      "version": "1.1.13",
+      "dependencies": []
     },
     {
       "name": "vector_graphics",
@@ -766,6 +797,33 @@
         "flutter",
         "http",
         "vector_graphics_codec"
+      ]
+    },
+    {
+      "name": "ffi",
+      "version": "2.1.4",
+      "dependencies": []
+    },
+    {
+      "name": "platform",
+      "version": "3.1.6",
+      "dependencies": []
+    },
+    {
+      "name": "xdg_directories",
+      "version": "1.1.0",
+      "dependencies": [
+        "meta",
+        "path"
+      ]
+    },
+    {
+      "name": "gtk",
+      "version": "2.1.0",
+      "dependencies": [
+        "ffi",
+        "flutter",
+        "meta"
       ]
     },
     {
@@ -778,17 +836,25 @@
       ]
     },
     {
-      "name": "petitparser",
-      "version": "7.0.1",
+      "name": "path_parsing",
+      "version": "1.1.0",
       "dependencies": [
-        "collection",
-        "meta"
+        "meta",
+        "vector_math"
       ]
     },
     {
       "name": "args",
       "version": "2.7.0",
       "dependencies": []
+    },
+    {
+      "name": "petitparser",
+      "version": "7.0.1",
+      "dependencies": [
+        "collection",
+        "meta"
+      ]
     }
   ],
   "configVersion": 1

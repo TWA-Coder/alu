@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login_screen.dart'; 
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -6,44 +7,89 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1E1A3B),
+      backgroundColor: const Color(0xFF0E103D), // Deep navy background
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Spacer(),
-              const Icon(Icons.menu_book, size: 100, color: Colors.white),
-              const SizedBox(height: 24),
-              const Text(
-                'BookSwap',
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white),
-              ),
-              const SizedBox(height: 8),
-              const Text(
-                'Swap Your Books With Other Students',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white70, fontSize: 16),
-              ),
-              const Spacer(),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/home');
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFFFC107),
-                  minimumSize: const Size(double.infinity, 56),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Book icon
+                Image.asset(
+                  'assets/book_icon.png', // 👈 Replace with your actual asset name
+                  height: 100,
+                  width: 100,
                 ),
-                child: const Text('Sign In', style: TextStyle(color: Colors.black, fontSize: 18)),
-              ),
-              const SizedBox(height: 40),
-            ],
+                const SizedBox(height: 40),
+
+                // App title
+                const Text(
+                  'BookSwap',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 16),
+
+                // Subtitle
+                const Text(
+                  'Swap Your Books\nWith Other Students',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    height: 1.4,
+                  ),
+                ),
+                const SizedBox(height: 12),
+
+                const Text(
+                  'Sign in to get started',
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 14,
+                  ),
+                ),
+
+                const SizedBox(height: 60),
+
+                // Sign in button
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFFFC107), // yellow
+                      foregroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const LoginScreen()),
+                      );
+                    },
+                    child: const Text(
+                      'Sign In',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 }
+
 
