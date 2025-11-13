@@ -14,3 +14,7 @@ Assessment Goals
 
 5. Differentiate the dynamic memory management functions
 6. Implement the memory management functions in a program
+
+Running The Program
+gcc <filename> -o <name_compiled_output>
+./name_compiled_output
