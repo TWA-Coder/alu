@@ -1,16 +1,60 @@
-# bookswap_app
+#  BookSwap App
 
-A new Flutter project.
+BookSwap is a Flutter + Firebase application that allows students to **swap books** once they are done reading them.  
+Users can browse available books, upload their own listings, request swaps, and chat with other students.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+##  Features
 
-A few resources to get you started if this is your first Flutter project:
+- **Firebase Authentication** (Email & Google Sign-In)  
+- **Browse Book Listings**  
+- **Create Your Own Listings**  
+- **Swap Request System**  
+- **User-to-User Chat**  
+- **Cloud Firestore Database**  
+- **Firebase Storage for Book Images**  
+-  Tested using Android Emulator  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Tech Stack
+
+### **Frontend**
+- Flutter 3.x  
+- Dart  
+
+### **Backend / Cloud**
+- Firebase Authentication  
+- Firebase Firestore  
+- Firebase Storage  
+- Firebase App Check (optional)  
+
+---
+
+## Project Structure
+
+## Tech Stack
+
+### **Frontend**
+- Flutter 3.x  
+- Dart  
+
+### **Backend / Cloud**
+- Firebase Authentication  
+- Firebase Firestore  
+- Firebase Storage  
+- Firebase App Check (optional)  
+
+---
+
+##  Project Structure
+
+# Installation & Setup
+
+## Clone the repository
+
+```bash
+git clone <repo-url>
+cd bookswap_app
+flutter pub get
