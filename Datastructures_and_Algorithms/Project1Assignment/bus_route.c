@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <windows.h> // For Sleep() function
+#include <unistd.h> // For Sleep() function
 
 // Basic configuration
-#define DELAY_MS 3000
+#define DELAY_MS 3
 #define MAX_NAME_LEN 50
 
 // Node structure for Doubly Linked List
@@ -71,7 +71,7 @@ void traverseForward(Node* head) {
     while (current != NULL) {
         printf("Stop #%d: %s\n", current->number, current->name);
         if (current->next != NULL) {
-            Sleep(DELAY_MS); // Wait 3 seconds
+            sleep(DELAY_MS); // Wait 3 seconds
         }
         current = current->next;
     }
@@ -96,7 +96,7 @@ void traverseBackward(Node* head) {
     while (current != NULL) {
         printf("Stop #%d: %s\n", current->number, current->name);
         if (current->prev != NULL) {
-            Sleep(DELAY_MS); // Wait 3 seconds
+            sleep(DELAY_MS); // Wait 3 seconds
         }
         current = current->prev;
     }
