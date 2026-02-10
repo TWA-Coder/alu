@@ -1,7 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <windows.h> // For Sleep() function
+#ifdef _WIN32
+#include <windows.h>
+#define sleep_ms(x) Sleep(x)
+#else
+#include <unistd.h>
+#define sleep_ms(x) usleep((x) * 1000)
+#endif
 
 // Basic configuration
 #define DELAY_MS 3000
@@ -71,7 +77,7 @@ void traverseForward(Node* head) {
     while (current != NULL) {
         printf("Stop #%d: %s\n", current->number, current->name);
         if (current->next != NULL) {
-            Sleep(DELAY_MS); // Wait 3 seconds
+            sleep_ms(DELAY_MS); // Wait 3 seconds
         }
         current = current->next;
     }
@@ -96,7 +102,7 @@ void traverseBackward(Node* head) {
     while (current != NULL) {
         printf("Stop #%d: %s\n", current->number, current->name);
         if (current->prev != NULL) {
-            Sleep(DELAY_MS); // Wait 3 seconds
+            sleep_ms(DELAY_MS); // Wait 3 seconds
         }
         current = current->prev;
     }
