@@ -10,7 +10,7 @@
 #endif
 
 // Basic configuration
-#define DELAY_MS 3000
+#define DELAY_MS 3
 #define MAX_NAME_LEN 50
 
 // Node structure for Doubly Linked List
