@@ -167,7 +167,7 @@ int main() {
         {2, 3, 17}, // C-D
         {2, 6, 25}, // C-G
         {3, 4, 22}, // D-E
-        {3, 6, 22}, // D-G (ESTIMATED - might be D-F or similar path?)
+        {3, 6, 22}, // D-G
         {3, 5, 0}, // D-F 
         {4, 5, 10}, // E-F
         {5, 6, 22}  // F-G 

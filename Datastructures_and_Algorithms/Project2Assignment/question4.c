@@ -142,8 +142,8 @@ int main() {
     // Weights approximated from visual if needed, or matched to user's Q3 data where possible.
     // A=0, B=1, C=2, D=3, E=4, F=5, G=6
     
-    addEdge(&g, 0, 1, 6);   // A-B
-    addEdge(&g, 0, 3, 8);   // A-D (Approximated as 8 based on visual length relative to 5 and 6)
+    addEdge(&g, 0, 1, 6); // A-B
+    addEdge(&g, 0, 3, 8);   // A-D
     
     addEdge(&g, 1, 2, 11);  // B-C
     addEdge(&g, 1, 3, 5);   // B-D
@@ -152,8 +152,7 @@ int main() {
     addEdge(&g, 2, 6, 25);  // C-G
     
     addEdge(&g, 3, 4, 22);  // D-E
-    addEdge(&g, 3, 5, 12);  // D-F (Approximated)
-    // Note: D is central. In user's Q3 code they had a 0 connection A-D? I will assume valid graph.
+    addEdge(&g, 3, 5, 12);  // D-F
     
     addEdge(&g, 4, 5, 10);  // E-F
     
