@@ -161,16 +161,16 @@ int main() {
     // IMPORTANT: Verify these weights against the Question Image
     Edge edges[] = {
         {0, 1, 6},  // A-B
-        {0, 3, 10}, // A-D (ESTIMATED - PLEASE VERIFY)
+        {0, 3, 0}, // A-D 
         {1, 2, 11}, // B-C
         {1, 3, 5},  // B-D
         {2, 3, 17}, // C-D
         {2, 6, 25}, // C-G
         {3, 4, 22}, // D-E
         {3, 6, 22}, // D-G (ESTIMATED - might be D-F or similar path?)
-        {3, 5, 12}, // D-F (ESTIMATED - PLEASE VERIFY)
+        {3, 5, 0}, // D-F 
         {4, 5, 10}, // E-F
-        {5, 6, 15}  // F-G (ESTIMATED - PLEASE VERIFY)
+        {5, 6, 22}  // F-G 
     };
     
     graph.num_edges = sizeof(edges) / sizeof(edges[0]);

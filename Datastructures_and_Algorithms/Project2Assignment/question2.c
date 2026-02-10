@@ -97,12 +97,6 @@ int delete_passenger(Heap *h, int risk_score) {
     h->array[found] = h->array[h->size - 1];
     h->size--;
 
-    // If the replaced node is smaller than parent, bubble up (unlikely for max heap delete usually, but needed if we disrupted order)
-    // Actually, usually we just heapify down, but if we swapped a larger element up from the bottom (unlikely in max heap context for a deletion of a large element), 
-    // we strictly need to check both directions or deciding based on values.
-    // However, simplest general delete update:
-    
-    // Check if it needs to go up
     int current = found;
     while (current != 0 && h->array[(current - 1) / 2].risk_score < h->array[current].risk_score) {
         swap(&h->array[current], &h->array[(current - 1) / 2]);
@@ -178,10 +172,6 @@ int main() {
     if (h.size > 0 && h.array[0].risk_score == 98) {
         printf("System Check: New Passenger is at the FRONT of the line.\n");
     }
-
-    // 4. Passenger with risk 98 is cleared (removed)
-    // Note: If they are at the front, we could just extract_max. 
-    // But demonstrating specific deletion logic for robustness.
     printf("\n>>> EVENT: Passenger with Risk 98 is Cleared/Removed <<<\n");
     delete_passenger(&h, 98);
     display_heap(&h);

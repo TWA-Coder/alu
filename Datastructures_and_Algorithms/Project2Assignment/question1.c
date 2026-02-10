@@ -137,19 +137,12 @@ int main() {
     print_heap(&h, "After Building Max-Heap");
 
     // 2. Insert urgent job with priority 100
-    // Let's give it ID 'L' (next sequential letter)
     Job urgent_job = {'L', 100};
     printf("\n>>> Inserting Urgent Job (ID: L, Priority: 100) <<<\n");
     insert_job(&h, urgent_job);
     print_heap(&h, "After Inserting Job 100");
 
-    // 3. Extract the highest priority job (should be the one we just inserted)
-    // The requirement says "The urgent job is later aborted", which implies removal.
-    // In a priority queue, 'removal' usually means extracting the max if it's at the top.
-    // Or if it means removing a specific arbitrary node, that's more complex, but typically 
-    // "aborted" in this context where it's the highest priority means it would be the next to run/extract.
-    // Given the flow, it likely bubbled to top.
-    
+
     printf("\n>>> Aborting/Extracting Highest Priority Job <<<\n");
     Job max_job = extract_max(&h);
     printf("Extracted Job: %c with Priority %d\n", max_job.id, max_job.priority);
