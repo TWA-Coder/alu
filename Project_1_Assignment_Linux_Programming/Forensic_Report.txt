@@ -1,0 +1,45 @@
+Forensic Report: Suspicious Binary "data_sync"
+Date: March 10, 2026
+
+1. Executive Summary
+During a routine system review, an unknown executable named "data_sync" was found running on the server. Without executing the binary directly, a static analysis was performed using the Linux ELF inspection tools "nm" and "objdump" to determine its functionality. Our analysis indicates that the binary is a benign file synchronization simulation tool rather than malicious software.
+
+2. Methodology
+The analysis was performed exclusively using static analysis on the ELF executable format:
+* nm data_sync: Used to list symbols from the object file, including functions called and imported libraries.
+* objdump -d data_sync: Used to view the program's sections, entry points, and disassemble the executable (.text section) to understand control flow without execution.
+
+3. ELF File Analysis
+3.1. General Structure & Sections
+According to the objdump output, the file format is elf64-x86-64.
+Key sections identified:
+* .text: Contains the executable block of code. 
+* .rodata: Contains read-only data, such as hardcoded string literals (e.g., "Usage: ...").
+* .bss: Contains uninitialized data.
+
+3.2. Entry Point
+* Start Address: The ELF header specifies the program entry point at 0x0000000000001060.
+* This maps directly to the _start symbol in the .text section, which initializes the C runtime environment and transfers execution to the main function (located at 0x00000000000011f6).
+
+3.3. Symbols and Imported Library Functions
+The symbol table extracted using nm reveals both internal and externally linked functions.
+
+Key Internal Functions (Defined in the Binary - 'T' or 't'):
+* main: The core entry point for the user logic.
+* sync_files (at 0x1149): A custom function indicative of the program's primary action.
+
+Imported Functions (Undefined Symbols - 'U'):
+* printf@@GLIBC_2.2.5 & puts@@GLIBC_2.2.5: Used for writing output to the console.
+* fprintf@@GLIBC_2.2.5: Likely used for printing error messages (e.g., if incorrect arguments are passed to CLI).
+* sleep@@GLIBC_2.2.5: Pauses execution, commonly used to simulate a time-consuming operation.
+* exit@@GLIBC_2.2.5: Terminates the program cleanly.
+
+4. Interpretation of Binary Behavior
+Based purely on the static ELF structures and symbol names:
+1. Initialization: The binary starts at _start, sets up the C runtime environment, and calls main.
+2. Argument Checking: The program likely expects runtime arguments (hinted by the presence of fprintf and exit, typically used for invalid CLI arguments). 
+3. Core Logic: The main function calls a custom subroutine named sync_files. Inside sync_files, the program prints a message using printf, calls sleep (simulating synchronization delay), and finishes by printing a completion message. 
+4. No Malicious Capabilities: There are no hidden network sockets (socket, connect), file tampering functions, or unauthorized privilege escalation vectors (setrlimit, setuid). The program primarily interacts with standard I/O and sleep timing.
+
+5. Conclusion
+The data_sync binary is a harmless file synchronization simulator. It does not perform actual file copy operations or network syncs. The system administrator can safely classify this as a test or simulation tool.

@@ -1,0 +1,69 @@
+
+data_sync:     file format elf64-x86-64
+
+architecture: i386:x86-64, flags 0x00000150:
+HAS_SYMS, DYNAMIC, D_PAGED
+start address 0x0000000000001060
+
+Program Header:
+    PHDR off    0x0000000000000040 vaddr 0x0000000000000040 paddr 0x0000000000000040 align 2**3
+         filesz 0x00000000000002a0 memsz 0x00000000000002a0 flags r--
+...
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .interp       0000001c  0000000000000318  0000000000000318  00000318  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+...
+ 13 .text         00000215  0000000000001060  0000000000001060  00001060  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 .rodata       00000067  0000000000002000  0000000000002000  00002000  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+...
+ 23 .bss          00000008  0000000000004010  0000000000004010  00003010  2**0
+                  ALLOC
+
+Disassembly of section .text:
+
+0000000000001060 <_start>:
+    1060:	31 ed                	xor    %ebp,%ebp
+    1062:	49 89 d1             	mov    %rdx,%r9
+    1065:	5e                   	pop    %rsi
+    1066:	48 89 e2             	mov    %rsp,%rdx
+    1069:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+    106d:	50                   	push   %rax
+    106e:	54                   	push   %rsp
+    106f:	4c 8d 05 9a 01 00 00 	lea    0x19a(%rip),%r8        # 1210 <__libc_csu_fini>
+    1076:	48 8d 0d 23 01 00 00 	lea    0x123(%rip),%rcx       # 11a0 <__libc_csu_init>
+    107d:	48 8d 3d 72 01 00 00 	lea    0x172(%rip),%rdi       # 11f6 <main>
+    1084:	ff 15 56 2f 00 00    	callq  *0x2f56(%rip)        # 3fe0 <__libc_start_main@GLIBC_2.2.5>
+    108a:	f4                   	hlt    
+
+0000000000001149 <sync_files>:
+    1149:	55                   	push   %rbp
+    114a:	48 89 e5             	mov    %rsp,%rbp
+    114d:	48 83 ec 10          	sub    $0x10,%rsp
+    1151:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+    1155:	48 89 75 f0          	mov    %rsi,-0x10(%rbp)
+    1159:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+    115d:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    1161:	48 89 c6             	mov    %rax,%rsi
+    1164:	48 8d 3d 9d 0e 00 00 	lea    0xe9d(%rip),%rdi        # 2008 <_IO_stdin_used+0x8>
+    116b:	b8 00 00 00 00       	mov    $0x0,%eax
+    1170:	e8 bb fe ff ff       	call   1030 <printf@plt>
+    1175:	bf 01 00 00 00       	mov    $0x1,%edi
+    117a:	e8 c1 fe ff ff       	call   1040 <sleep@plt>
+    117f:	48 8d 3d a7 0e 00 00 	lea    0xea7(%rip),%rdi        # 202d <_IO_stdin_used+0x2d>
+    1186:	e8 85 fe ff ff       	call   1010 <puts@plt>
+    118b:	90                   	nop
+    118c:	c9                   	leave  
+    118d:	c3                   	ret    
+
+00000000000011f6 <main>:
+    11f6:	55                   	push   %rbp
+    11f7:	48 89 e5             	mov    %rsp,%rbp
+    ...
+    121e:	e8 26 ff ff ff       	call   1149 <sync_files>
+    1223:	b8 00 00 00 00       	mov    $0x0,%eax
+    1228:	c9                   	leave  
+    1229:	c3                   	ret    
