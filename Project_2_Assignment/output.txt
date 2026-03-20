@@ -1,0 +1,118 @@
+root             10699  17.4  0.4 435340704  33392   ??  Rs    7:44AM   0:00.14 /System/Library/PrivateFrameworks/XprotectFramework.framework/Versions/A/XPCServices/XprotectService.xpc/Contents/MacOS/XprotectService
+root               210  10.7  0.2 435347104  14992   ??  Ss   Tue08PM   5:21.70 /usr/libexec/airportd
+root               260   4.2  0.2 435439072  14080   ??  Us   Tue08PM   1:05.68 /usr/libexec/syspolicyd
+root                 1   2.4  0.1 435245648  11856   ??  Ss   Tue08PM   1:25.09 /sbin/launchd
+root               369   1.9  0.1 435347312   8336   ??  Ss   Tue08PM   0:10.94 /usr/libexec/wifip2pd
+root                91   1.4  0.1 435435168   9536   ??  Ss   Tue08PM   1:29.08 /usr/libexec/logd
+root               220   0.4  0.0 435340464   3552   ??  Ss   Tue08PM   0:04.06 /System/Library/Frameworks/Security.framework/Versions/A/XPCServices/authd.xpc/Contents/MacOS/authd
+root                95   0.4  0.1 435313376   4912   ??  Ss   Tue08PM   0:55.22 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/Support/fseventsd
+root               132   0.3  0.1 435347472   9088   ??  Ss   Tue08PM   0:26.38 /usr/libexec/opendirectoryd
+root               165   0.2  0.0 435306624   3696   ??  Ss   Tue08PM   0:24.30 /usr/sbin/cfprefsd daemon
+root               138   0.2  0.0 435340176   4016   ??  Ss   Tue08PM   0:06.32 /usr/sbin/securityd -i
+root               135   0.1  0.1 435340480   5376   ??  Ss   Tue08PM   0:06.09 /System/Library/CoreServices/launchservicesd
+root               158   0.1  0.0 435304896   3088   ??  Ss   Tue08PM   0:21.60 /usr/sbin/notifyd
+root              9227   0.0  0.0 435306112   1888   ??  Ss    7:20AM   0:00.03 /usr/libexec/online-auth-agent
+root              9149   0.0  0.0 435312912   2272   ??  Ss    7:19AM   0:00.12 /System/Library/PrivateFrameworks/AssetCacheServicesExtensions.framework/XPCServices/AssetCacheTetheratorService.xpc/Contents/MacOS/AssetCacheTetheratorService
+root              9139   0.0  0.0 435305136   2528   ??  Ss    7:19AM   0:00.04 /usr/libexec/usermanagerd -t 15
+root              9131   0.0  0.0 435304992   2480   ??  Ss    7:19AM   0:00.04 /System/Library/PrivateFrameworks/PackageKit.framework/Resources/installd
+root              9129   0.0  0.0 435305120   2496   ??  Ss    7:19AM   0:00.04 /System/Library/PrivateFrameworks/PackageKit.framework/Resources/system_installd
+root              9128   0.0  0.1 435339232   4576   ??  Ss    7:19AM   0:00.22 /System/Library/PrivateFrameworks/CloudKitDaemon.framework/Support/cloudd --system
+root              9126   0.0  0.0 435305520   1824   ??  Ss    7:19AM   0:00.03 /System/Library/PrivateFrameworks/CacheDelete.framework/deleted_helper
+root              9124   0.0  0.0 435366768   1632   ??  Ss    7:19AM   0:00.02 /System/Library/Frameworks/NetFS.framework/Versions/A/XPCServices/PlugInLibraryService.xpc/Contents/MacOS/PlugInLibraryService
+root              8330   0.0  0.0 435305488   2080   ??  Ss    7:19AM   0:00.10 /usr/libexec/logd_helper
+root              8139   0.0  0.0 435305136   1376   ??  Ss    7:19AM   0:00.04 /System/Library/PrivateFrameworks/CoreSymbolication.framework/coresymbolicationd
+root              8068   0.0  0.0 435301968   3024   ??  Ss    7:19AM   0:00.03 /System/Library/CoreServices/ReportCrash daemon
+root              7930   0.0  0.1 435344608   4464   ??  Ss    7:19AM   0:00.27 /System/Library/PrivateFrameworks/XprotectFramework.framework/Versions/A/XPCServices/XProtectBridgeService.xpc/Contents/MacOS/XProtectBridgeService
+root              7929   0.0  0.0 435344576   3824   ??  Ss    7:19AM   0:00.12 /System/Library/PrivateFrameworks/CloudTelemetry.framework/Versions/A/XPCServices/CloudTelemetryService.xpc/Contents/MacOS/CloudTelemetryService
+root              7928   0.0  0.0 435339184   3872   ??  Ss    7:19AM   0:00.09 /System/Library/PrivateFrameworks/BackgroundTaskManagement.framework/Resources/backgroundtaskmanagementd -daemon
+root              7498   0.0  0.0 435339360   3520   ??  Ss    7:19AM   0:00.53 /usr/libexec/amfid
+root              7439   0.0  0.0 435304832   2288   ??  Ss    7:17AM   0:00.07 /usr/libexec/colorsyncd
+root              7164   0.0  0.0 435304480   2416   ??  Ss   11:44PM   0:00.03 /usr/libexec/colorsync.displayservices
+root              7162   0.0  0.0 435340000   3520   ??  Ss   11:43PM   0:00.29 /usr/libexec/countryd
+root              7156   0.0  0.0 435340832   3088   ??  Ss   11:43PM   0:00.05 /System/Library/Frameworks/SystemExtensions.framework/Versions/A/Helpers/sysextd
+root              7157   0.0  0.1 435359024   5680   ??  Ss   11:43PM   0:00.26 /System/Library/PrivateFrameworks/AppSSO.framework/Support/AppSSODaemon
+root              7154   0.0  0.0 435340336   4112   ??  Ss   11:43PM   0:00.73 /usr/libexec/nesessionmanager
+root              7132   0.0  0.0 435340272   3888   ??  Ss   11:27PM   0:00.22 /usr/libexec/biometrickitd --launchd
+root              7127   0.0  0.0 435335040   2240   ??  Ss   11:27PM   0:00.04 /System/Library/PrivateFrameworks/AppleCredentialManager.framework/AppleCredentialManagerDaemon
+root              7071   0.0  0.1 435342976   6656   ??  S    11:25PM   0:01.64 /System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/XPCServices/com.apple.geod.xpc/Contents/MacOS/com.apple.geod
+root              7069   0.0  0.0 435360352   3648   ??  Ss   11:25PM   0:00.11 /usr/libexec/fskitd
+root              7056   0.0  0.0 435344256   3952   ??  Ss   11:25PM   0:01.19 /usr/libexec/storagekitd
+root              7047   0.0  0.0 435340400   4144   ??  Ss   11:25PM   0:02.13 /usr/libexec/triald_system
+root              7040   0.0  0.0 435340512   2720   ??  Ss   11:25PM   0:00.04 /usr/libexec/sandboxd
+root              7020   0.0  0.1 435345232   4800   ??  Ss   11:24PM   0:00.82 /usr/libexec/coreduetd
+root              7015   0.0  0.0 435304832   3168   ??  Ss   11:23PM   0:00.26 /System/Library/CoreServices/TimeMachine/backupd-helper -launchd
+root              7009   0.0  0.0 435340640   3760   ??  Ss   11:21PM   0:00.70 /usr/libexec/ospredictiond
+root              6737   0.0  0.1 435339664   5440   ??  Ss   10:31PM   0:01.14 /usr/libexec/audioanalyticsd
+root              6081   0.0  0.1 435355200   9872   ??  Ss    9:48PM   0:34.48 /usr/libexec/PerfPowerServices
+root              5838   0.0  0.0 435340464   3872   ??  Ss    9:36PM   0:00.43 /System/Library/CoreServices/osanalyticshelper server-init
+root              5836   0.0  0.0 435305312   1760   ??  Ss    9:36PM   0:00.51 /usr/libexec/securityd_system
+root              5825   0.0  0.1 435353104   7744   ??  Ss    9:36PM   0:55.52 /usr/libexec/mobileassetd
+root              4893   0.0  0.0 435340240   3008   ??  Ss   Wed03AM   0:00.49 /usr/libexec/wifivelocityd
+root              4113   0.0  0.0 435305248   1600   ??  Ss   Tue08PM   0:00.04 /System/Library/CoreServices/CrashReporterSupportHelper server-init
+root               587   0.0  0.0 435340944   3152   ??  Ss   Tue08PM   0:01.02 /System/Library/CoreServices/SubmitDiagInfo server-init
+root              1630   0.0  0.0 435313536    800   ??  Ss   Tue08PM   0:00.04 /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/CVMServer
+root               740   0.0  0.0 435308848   1600 s000  Ss   Tue08PM   0:00.01 login -pfl arisene /bin/bash -c exec -la zsh /bin/zsh
+root               570   0.0  0.1 435350720   5664   ??  Ss   Tue08PM   0:08.91 /usr/libexec/gamepolicyd
+root               549   0.0  0.0 435306640    864   ??  Ss   Tue08PM   0:00.08 automountd
+root               429   0.0  0.0 435346944   4160   ??  Ss   Tue08PM   0:01.69 /System/Library/Frameworks/ManagedAppDistribution.framework/Support/managedappdistributiond
+root               374   0.0  0.0 435340288   3024   ??  Ss   Tue08PM   0:02.57 /usr/libexec/wifianalyticsd
+root               364   0.0  0.0 435340944   1824   ??  S    Tue08PM   0:00.52 /usr/sbin/systemstats --logger-helper /private/var/db/systemstats
+root               341   0.0  0.0 435304736   1824   ??  Ss   Tue08PM   0:00.10 /System/Library/Frameworks/CryptoTokenKit.framework/ctkahp.bundle/Contents/MacOS/ctkahp -d
+root               336   0.0  0.0 435316144   3840   ??  Ss   Tue08PM   0:00.73 /usr/sbin/filecoordinationd
+root               334   0.0  0.0 435339552   3552   ??  Ss   Tue08PM   0:00.76 /System/Library/Frameworks/LocalAuthentication.framework/Support/coreauthd
+root               328   0.0  0.0 435342608   3296   ??  Ss   Tue08PM   0:02.59 /usr/libexec/rtcreportingd
+root               319   0.0  0.1 435365072   5936   ??  Ss   Tue08PM   0:02.09 /usr/libexec/searchpartyd
+root               313   0.0  0.0 436579152   1584   ??  Ss   Tue08PM   0:00.11 /Library/PrivilegedHelperTools/com.docker.vmnetd
+root               306   0.0  0.0 435340944   2384   ??  Ss   Tue08PM   0:00.10 /System/Library/CoreServices/Software Update.app/Contents/Resources/suhelperd
+root               292   0.0  0.0 435310464   2000   ??  Ss   Tue08PM   0:07.88 /usr/libexec/audioclocksyncd
+root               267   0.0  0.1 435340176   4480   ??  Ss   Tue08PM   0:05.76 /usr/sbin/WirelessRadioManagerd
+root               265   0.0  0.0 435340400   2688   ??  Ss   Tue08PM   0:07.37 /System/Library/CoreServices/TimeMachine/backupd
+arisene          10702   0.0  0.0 410059936    192 s006  R+    7:44AM   0:00.00 grep root
+root               222   0.0  0.0 435304864   1360   ??  S    Tue08PM   0:00.54 /usr/sbin/distnoted agent
+root               229   0.0  0.0 435306000   1760   ??  Ss   Tue08PM   0:00.54 /usr/sbin/mDNSResponderHelper
+root               200   0.0  0.0 435343312   3312   ??  Ss   Tue08PM   0:09.41 /usr/libexec/eligibilityd
+root               196   0.0  0.1 435342992   4512   ??  Ss   Tue08PM   0:00.92 /System/Library/PrivateFrameworks/SystemStatusServer.framework/Support/systemstatusd
+root               193   0.0  0.0 435305376   1904   ??  Ss   Tue08PM   0:00.03 /usr/libexec/ApplicationFirewall/socketfilterfw
+root               179   0.0  0.0 435341984   2688   ??  Ss   Tue08PM   0:01.54 /usr/libexec/aned
+root               180   0.0  0.0 435338864   3216   ??  Ss   Tue08PM   0:04.65 /usr/libexec/nehelper
+root               177   0.0  0.0 435304624   2144   ??  Ss   Tue08PM   1:34.36 /usr/libexec/apfsd
+root               174   0.0  0.1 435349392   4576   ??  Ss   Tue08PM   0:07.60 /usr/libexec/lsd runAsRoot
+root               170   0.0  0.1 435351424   8896   ??  Ss   Tue08PM   1:46.71 /usr/libexec/runningboardd
+root               169   0.0  0.0 435324656   3024   ??  Ss   Tue08PM   0:01.06 /System/Library/CoreServices/coreservicesd
+root               164   0.0  0.0 435359056   3776   ??  Ss   Tue08PM   0:06.05 /System/Library/PrivateFrameworks/TCC.framework/Support/tccd system
+root               106   0.0  0.0 435305568   1504   ??  Ss   Tue08PM   0:00.02 /usr/libexec/IOMFB_bics_daemon
+root               152   0.0  0.0 435339408   2288   ??  Ss   Tue08PM   0:00.15 /System/Library/PrivateFrameworks/GenerationalStorage.framework/Versions/A/Support/revisiond
+root                96   0.0  0.1 435346432   5152   ??  Ss   Tue08PM   0:05.50 /System/Library/PrivateFrameworks/MediaRemote.framework/Support/mediaremoted
+root               130   0.0  0.1 435347952   6432   ??  Ss   Tue08PM   0:12.99 /System/Library/PrivateFrameworks/CoreDuetContext.framework/Resources/contextstored
+root               162   0.0  0.0 435338960   3136   ??  Ss   Tue08PM   0:00.35 /System/Library/Frameworks/CoreMediaIO.framework/Versions/A/Resources/com.apple.cmio.registerassistantservice
+root                99   0.0  0.0 435350960   3632   ??  Ss   Tue08PM   0:02.53 /usr/sbin/systemstats --daemon
+root               127   0.0  0.0 435305856    528   ??  Ss   Tue08PM   0:13.49 /usr/sbin/syslogd
+root               105   0.0  0.1 435340656   4880   ??  Ss   Tue08PM   0:19.42 /System/Library/CoreServices/powerd.bundle/powerd
+root               120   0.0  0.2 435362784  12896   ??  Ss   Tue08PM   0:57.08 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds
+root               153   0.0  0.0 435301280    848   ??  Ss   Tue08PM   0:00.02 /usr/sbin/KernelEventAgent
+root               103   0.0  0.1 435344928   5264   ??  Ss   Tue08PM   1:04.78 /usr/libexec/configd
+root               129   0.0  0.0 435338928   2672   ??  Ss   Tue08PM   0:02.38 /usr/libexec/thermalmonitord
+root               144   0.0  0.1 435347904   9440   ??  Ss   Tue08PM   0:54.50 /usr/libexec/dasd
+root               157   0.0  0.1 435362288  11920   ??  Ss   Tue08PM   0:14.20 /usr/sbin/bluetoothd
+root               116   0.0  0.0 435305872   1776   ??  Ss   Tue08PM   0:00.46 /usr/libexec/watchdogd
+root               160   0.0  0.1 435338736   4576   ??  Ss   Tue08PM   0:18.43 /usr/libexec/corebrightnessd --launchd
+root               143   0.0  0.0 435301040   1344   ??  Ss   Tue08PM   0:00.04 autofsd
+root               151   0.0  0.0 435304752   2080   ??  Ss   Tue08PM   0:00.18 /System/Library/CoreServices/logind
+root               123   0.0  0.0 435338880   3616   ??  Ss   Tue08PM   0:02.13 /usr/libexec/diskarbitrationd
+root               161   0.0  0.0 435307584   3104   ??  Ss   Tue08PM   0:02.58 /usr/libexec/AirPlayXPCHelper
+root               110   0.0  0.0 435338896   1552   ??  Ss   Tue08PM   0:00.21 /usr/libexec/remoted
+root               134   0.0  0.1 435418192   6784   ??  Ss   Tue08PM   0:39.87 /System/Library/PrivateFrameworks/ApplePushService.framework/apsd
+root                93   0.0  0.1 435348336   4368   ??  Ss   Tue08PM   0:07.44 /usr/libexec/UserEventAgent (System)
+root               145   0.0  0.0 435343408   2256   ??  Ss   Tue08PM   0:00.12 /usr/libexec/corerepaird
+root               131   0.0  0.0 435336576   1664   ??  Ss   Tue08PM   0:00.06 /usr/libexec/xprotectd
+root               122   0.0  0.0 435342688   2400   ??  Ss   Tue08PM   0:00.93 /usr/libexec/kernelmanagerd
+root               262   0.0  0.0 435305488   1664   ??  Ss   Tue08PM   0:00.34 /System/Library/Frameworks/Security.framework/Versions/A/XPCServices/com.apple.CodeSigningHelper.xpc/Contents/MacOS/com.apple.CodeSigningHelper
+root             10701   0.0  0.0 435299600   1744 s006  R+    7:44AM   0:00.00 ps aux
+root             10472   0.0  0.0 435305680   1904   ??  Ss    7:39AM   0:00.04 /System/Library/CoreServices/liquiddetectiond.app/liquiddetectiond
+root             10471   0.0  0.0 435338640   3360   ??  Ss    7:39AM   0:00.08 /usr/libexec/mobileactivationd
+root             10286   0.0  0.0 435338336   4064   ??  Ss    7:27AM   0:00.07 /usr/libexec/powerdatad
+root             10269   0.0  0.0 435300928   1680   ??  Ss    7:26AM   0:00.03 /usr/libexec/seputil --daemonize-reseed
+root              9258   0.0  0.0 435301056   1760   ??  Ss    7:23AM   0:00.52 /usr/libexec/sysmond
+root              9251   0.0  0.0 435305264   2416   ??  Ss    7:22AM   0:00.03 /usr/libexec/keybagd -t 15
+root              9240   0.0  0.0 435382816   2720   ??  Ss    7:22AM   0:00.06 /System/Library/Frameworks/Metal.framework/Versions/A/XPCServices/MTLCompilerService.xpc/Contents/MacOS/MTLCompilerService
+root              9234   0.0  0.0 435338832   3584   ??  Ss    7:21AM   0:00.08 /usr/libexec/powerexperienced
