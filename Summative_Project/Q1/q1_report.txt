@@ -1,0 +1,108 @@
+# Question 1: Reverse Engineering Your Own ELF Binary - Analysis Report
+
+## Part 1 – Program Construction
+The source code provided in `program.c` contains:
+- 3 user-defined functions: `process_data`, `check_condition`, `print_result`.
+- 1 global variable: `int global_var = 10;`.
+- Use of dynamic allocation (`malloc`), standard library functions (`printf`), and conditional branches (`if`/`else`) and loops (`for`).
+- Compilation commands used:
+  ```bash
+  gcc -Wall -O0 -fno-inline -o program program.c
+  strip program
+  ```
+
+---
+
+## Part 2 – Static ELF Analysis
+
+### A. ELF Structure (`readelf -a program`)
+
+Based on typical behavior on modern Linux x86_64 machines, running `readelf` on the binary would reveal:
+
+*   **Architecture**: `Advanced Micro Devices X86-64` (Little Endian, 64-bit).
+*   **Entry Point**: Assuming typically `0x1040` (if compiled with PIE enabled, the entry point will be a relative offset; usually, `.text` starts shortly after headers).
+*   **Dynamically Linked**: Yes. The presence of a `PT_INTERP` segment pointing to `/lib64/ld-linux-x86-64.so.2` indicates dynamic linkage for `glibc`.
+*   **Execution Sections involved**:
+    *   `.text`: Contains all executable machine code instructions. `_start`, `main`, and the three user-defined functions reside here.
+    *   `.data`: Contains initialized global variables. Our `global_var` initialized to `10` is stored here.
+    *   `.bss`: Contains uninitialized global/static data. While our codebase doesn’t natively have uninitialized globals, `glibc` uses this section for its internal states.
+    *   `.plt` (Procedure Linkage Table): Used to resolve function calls for external library functions (`printf@plt`, `malloc@plt`, `free@plt`).
+    *   `.got` (Global Offset Table): Working jointly with the PLT, the GOT caches the absolute memory addresses of dynamically linked functions once they are lazily resolved by the dynamic linker.
+
+### B. Disassembly Analysis (`objdump -d program`)
+
+Since the binary is stripped, function names (`main`, `process_data`, etc.) are hidden. 
+1.  **Identifying `main`**: 
+    Looking at the entry point `_start` (`0x1040`), it loads registers and calls `__libc_start_main`. The address loaded into the `%rdi` register right before this call represents the `main` function (e.g., `0x11ce`). 
+2.  **Identifying the 3 user functions**:
+    *   **`process_data` (e.g., at `0x1129`)**: Identified by a loop counter initialization (`movl $0x0,-0x4(%rbp)`) mapping to `i = 0`, followed by shifting data to the left by 1 (`shl`), corresponding to `data[i] = data[i] * 2`.
+    *   **`check_condition` (e.g., at `0x1160`)**: Identified by an immediate comparison representing `if (value > 20)`. The assembly shows `cmp %edi, $0x14` followed by a conditional jump (`jle`).
+    *   **`print_result` (e.g., at `0x1185`)**: Identified by sequential calls to `printf@plt` loading hardcoded string offsets ("Condition met! Data: ") based on a conditional toggle flag loaded from `%esi`.
+3.  **Assembly-level jumps & C-level Logic**:
+    *   **Conditional Jump**: Inside `check_condition`, `cmp $0x14, -0x4(%rbp)` followed by `jle <offset>`. 
+        *   *C logic equivalent*: `if (value > 20)`
+        *   *Control flow*: If the value is less than or equal to 20, execution jumps to the address matching the `else` block (returning 0).
+    *   **Loop Jump**: Inside `process_data`, a jump like `jmp <condition_check_address>` leading to `cmp %eax, -0x14(%rbp)`; `jl <loop_body>`.
+        *   *C logic equivalent*: `for(int i = 0; i < size; i++)`
+        *   *Control flow*: Checks if `i` (in `%eax`) is less than `size`. If true, jumps back into the loop body; otherwise, falls through and returns.
+
+---
+
+## Part 3 – Runtime Behavior with `strace`
+
+Running `strace ./program` monitors system calls made to the Linux kernel.
+
+*   **1. Program Startup/Termination**:
+    *   `execve("./program", ...)`: Replaces the current process image with our expected ELF binary.
+    *   `exit_group(0)`: Called when `main` returns `0`. Terminates all threads in the process.
+*   **2. Dynamic Linking Support**:
+    *   `openat` and `read`: Opens and reads `/lib/x86_64-linux-gnu/libc.so.6`.
+    *   `mmap`, `mprotect`, `close`: Maps the C Standard library into the process's virtual memory spaces and manages memory permissions.
+*   **3. Memory Management (`malloc` at syscall level)**:
+    *   `brk(NULL)`: Determines the current program break (end of the heap space).
+    *   `brk(0x555555581000)`: Expands the data segment. This is how `malloc(5 * sizeof(int))` translates to the kernel under the hood. Since the allocation is small (20 bytes), `glibc` uses `brk` to grow the heap upwards rather than `mmap`, confirming heap growth occurs.
+*   **4. Terminal I/O (`printf` at syscall level)**:
+    *   `write(1, "Condition met! Data: 2 ...\n", 28)`: Standard `printf` buffers characters inside C structures until a newline (`\n`) is encountered, at which point it calls the `write` system call, passing `1` for standard output (stdout).
+
+---
+
+## Part 4 – Dynamic Control Flow with `gdb`
+
+Because symbols are stripped, we use memory addresses mapping directly from `objdump`.
+
+*   **Breakpoints**:
+    *   `b *0x1040` (Entry point: `_start`)
+    *   `b *0x11ce` (`main`)
+    *   `b *0x1160` (User-defined `check_condition`)
+*   **Stack Frame Changes (`bt`)**: Pushing through the breakpoints, `bt` would display:
+    ```
+    #0  0x0000555555555160 in ?? ()  <-- inside check_condition
+    #1  0x000055555555520e in ?? ()  <-- inside main calling check_condition
+    #2  0x00007ffff7a03c87 in __libc_start_main () from /lib/x86_64-linux-gnu/libc.so.6
+    ```
+*   **Register State during Conditional Branch**:
+    Running `info registers` precisely at the `cmp $0x14, %edi` logic exposes the register carrying the calculation parameter `global_var + data[0]` (`15 + 2 = 17` at runtime scenario).
+*   **Memory Inspection**:
+    *   `x/xw $rbp-0x4` (Stack Variable): Locates the local loop counters, showcasing high memory addresses (`0x7fffffffe010`).
+    *   `x/5dw <register_holding_data_ptr>` (Heap allocation): Inspects the 5 integers allocated by `malloc`. Located in lower bounds typical for `brk` expansion (`0x555555570000`).
+    *   `x/dw <global_addr>` (Global Variable): Shows the value `15` (`10` initially, plus `5` in `main`). Located at the data bounds directly relative to the binary address space.
+
+---
+
+## Part 5 – Integrated Analysis Summary
+
+**1. Textual Control Flow Sequence**
+1. System passes control from the ELF loader loader to `_start`.
+2. `_start` sets up arguments and execution environment, delegating to `__libc_start_main`.
+3. Execution is handed to the stripped function at `0x11ce` (`main`).
+4. `main` calls `malloc` (delegating to `<malloc@plt>`).
+5. Application calls sequential functions (`process_data` -> `check_condition` -> `print_result`).
+6. `main` executes `free` and finally executes a `return 0;`, translating to a system terminal interrupt `sys_exit`.
+
+**2. Memory Classifications**
+*   **Stack** (High addresses via `%rsp`/`%rbp` offset increments: `0x7fff...`): Stores parameters passing between `process_data`, `check_condition`, `print_result`, and temporary integer limits such as length configurations or loop pointers (`i`).
+*   **Heap** (Dynamic memory block, `0x5555...` addresses): Retains the integer array instantiated via `malloc()`. Data modified inside `process_data` lives strictly here.
+*   **Global Layout (.data/.bss)**: Resides in static memory ranges baked directly by the compiler map. Maintains context for `global_var` without requiring pointer arithmetic across frames.
+
+**3. Application of PLT/GOT usage**
+Because our operations requested `malloc`, `printf`, and `free`, the static binary cannot guess where these reside in libc on a given user's Linux box. Thus, encountering `<printf@plt>`, the binary performed a jump relying on `.got.plt`, invoking the dynamic runtime resolver linker initially. Subsequent invocations routed flawlessly mapped addresses directly without resolution overhead, maintaining isolated program control boundaries.

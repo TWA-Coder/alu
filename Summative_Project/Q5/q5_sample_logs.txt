@@ -1,0 +1,74 @@
+=== DIGITAL LIBRARY RESERVATION PLATFORM - TCP MULTITHREADED SERVER LOGS ===
+
+[SERVER TERMINAL]
+=========================================
+ Digital Library Internal Server Active  
+ Listening strictly on TCP config: 8080 
+=========================================
+[SERVER] User ALU123 connected successfully. Total Active: 1
+[SERVER] User ALU456 connected successfully. Total Active: 2
+[SERVER] User Hacker99 attempted auth. Rejected.
+[SERVER] User ALU123 freshly reserved: 'Clean Code'.
+[SERVER] User ALU456 attempted to snake 'Clean Code', but already reserved. (CONFLICT HANDLED SAFELY)
+[SERVER] Session closed for user ALU123. Active Users roughly: 1
+[SERVER] User ALU456 freshly reserved: 'Operating System Concepts'.
+[SERVER] Session closed for user ALU456. Active Users roughly: 0
+
+
+=== CLIENT 1 TERMINAL (ALU123) ===
+=========================================
+ Welcome to the Digital Library Terminal 
+=========================================
+Please enter your designated Library ID: ALU123
+
+[SUCCESS] Server authenticated credentials!
+
+Fetching mathematical catalogs...
+
+ID | Title | Status
+-----------------------
+1 | The C Programming Language | AVAILABLE
+2 | Operating System Concepts | AVAILABLE
+3 | Advanced Programming in the UNIX Env | AVAILABLE
+4 | Computer Networking: A Top-Down Approach | AVAILABLE
+5 | Clean Code | AVAILABLE
+
+Select internal book ID you wish to secure reservation upon: 5
+
+[+] Reservation processed securely by server mutex constraints!
+
+Session closed. Goodbye, ALU123
+
+
+=== CLIENT 2 TERMINAL (ALU456) ===
+=========================================
+ Welcome to the Digital Library Terminal 
+=========================================
+Please enter your designated Library ID: ALU456
+
+[SUCCESS] Server authenticated credentials!
+
+Fetching mathematical catalogs...
+
+ID | Title | Status
+-----------------------
+1 | The C Programming Language | AVAILABLE
+2 | Operating System Concepts | AVAILABLE
+3 | Advanced Programming in the UNIX Env | AVAILABLE
+4 | Computer Networking: A Top-Down Approach | AVAILABLE
+5 | Clean Code | RESERVED
+
+Select internal book ID you wish to secure reservation upon: 5
+
+[-] RESERVATION REFUSED. Book is heavily locked/already reserved by another physical entity.
+
+Session closed. Goodbye, ALU456
+
+=== CLIENT 3 TERMINAL (UNAUTHORIZED) ===
+=========================================
+ Welcome to the Digital Library Terminal 
+=========================================
+Please enter your designated Library ID: Hacker99
+
+[ERROR] Authentication actively rejected by central server!
+Invalid credentials matching. Terminating connection.

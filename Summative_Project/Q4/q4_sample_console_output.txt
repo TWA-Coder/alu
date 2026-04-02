@@ -1,0 +1,63 @@
+=== Starting Airport Baggage Handling Simulation! ===
+
+[Loader] Loaded Luggage ID: 1 onto belt. (Belt Size: 1/5)
+[Aircraft] Removed Luggage ID: 1 from belt. (Belt Size: 0/5)
+[Loader] Loaded Luggage ID: 2 onto belt. (Belt Size: 1/5)
+[Aircraft] Successfully secured Luggage ID: 1 into Aircraft hold.
+[Aircraft] Removed Luggage ID: 2 from belt. (Belt Size: 0/5)
+
+--- [MONITOR REPORT] ---
+Total Luggage Loaded to belt so far:    2
+Total Luggage Dispatched to aircraft:   1
+Current Conveyor Belt Size Utilization: 0/5
+------------------------
+
+[Loader] Loaded Luggage ID: 3 onto belt. (Belt Size: 1/5)
+[Loader] Loaded Luggage ID: 4 onto belt. (Belt Size: 2/5)
+[Aircraft] Successfully secured Luggage ID: 2 into Aircraft hold.
+[Aircraft] Removed Luggage ID: 3 from belt. (Belt Size: 1/5)
+[Loader] Loaded Luggage ID: 5 onto belt. (Belt Size: 2/5)
+[Loader] Loaded Luggage ID: 6 onto belt. (Belt Size: 3/5)
+
+--- [MONITOR REPORT] ---
+Total Luggage Loaded to belt so far:    6
+Total Luggage Dispatched to aircraft:   2
+Current Conveyor Belt Size Utilization: 3/5
+------------------------
+
+[Aircraft] Successfully secured Luggage ID: 3 into Aircraft hold.
+[Aircraft] Removed Luggage ID: 4 from belt. (Belt Size: 2/5)
+[Loader] Loaded Luggage ID: 7 onto belt. (Belt Size: 3/5)
+[Loader] Loaded Luggage ID: 8 onto belt. (Belt Size: 4/5)
+[Loader] Loaded Luggage ID: 9 onto belt. (Belt Size: 5/5)
+[Loader] Belt is FULL (5/5). Waiting for space...
+[Aircraft] Successfully secured Luggage ID: 4 into Aircraft hold.
+[Aircraft] Removed Luggage ID: 5 from belt. (Belt Size: 4/5)
+[Loader] Loaded Luggage ID: 10 onto belt. (Belt Size: 5/5)
+
+--- [MONITOR REPORT] ---
+Total Luggage Loaded to belt so far:    10
+Total Luggage Dispatched to aircraft:   4
+Current Conveyor Belt Size Utilization: 5/5
+------------------------
+
+[Loader] Belt is FULL (5/5). Waiting for space...
+[Aircraft] Successfully secured Luggage ID: 5 into Aircraft hold.
+[Aircraft] Removed Luggage ID: 6 from belt. (Belt Size: 4/5)
+[Loader] Loaded Luggage ID: 11 onto belt. (Belt Size: 5/5)
+[Loader] Belt is FULL (5/5). Waiting for space...
+
+(... Simulation continues identical bounding execution rhythms ...)
+
+[Aircraft] Successfully secured Luggage ID: 19 into Aircraft hold.
+[Aircraft] Removed Luggage ID: 20 from belt. (Belt Size: 0/5)
+
+--- [MONITOR REPORT] ---
+Total Luggage Loaded to belt so far:    20
+Total Luggage Dispatched to aircraft:   19
+Current Conveyor Belt Size Utilization: 0/5
+------------------------
+
+[Aircraft] Successfully secured Luggage ID: 20 into Aircraft hold.
+
+=== Simulation Complete: All 20 luggage items successfully loaded into aircraft! ===
