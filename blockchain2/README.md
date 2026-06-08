@@ -1,5 +1,8 @@
 Assignment 2-[F:A]:Blockchain Transaction Models and Mining Simulation in C
-Due 9 Jun by 1:59 Points 15 Submitting a file upload Available 31 May at 2:00 - 13 Jun at 1:59
+
+
+Due Tuesday by 1:59 Points 15 Submitting a file upload Available 31 May at 2:00 - 13 Jun at 1:59
+
 Learning Outcomes:
 Upon completion of this formative assessment, students should understand:
 

@@ -1,3 +1,4 @@
-ALU001,John Doe,BLK101
+ALU001,John Dutton,BLK101
 ALU002,Jane Smith,BLK101
 ALU003,Amara Diallo,BLK101
+ALU004,Kelvin Bagabo,BLK101
