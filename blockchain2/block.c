@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * block_hash_compute - Computes the SHA-256 hash of a block's data fields.
+ * block_hash_compute - Computes the SHA-256 hash of a block's data fields necesary.
  *   Hashes: index, nonce, timestamp, student_id, student_name, course,
  *           status, token_reward, tx_id, prev_hash.
  *   The resulting hash is stored in block->hash.

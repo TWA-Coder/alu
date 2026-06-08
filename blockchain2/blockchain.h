@@ -13,7 +13,7 @@
 #define COURSE_LEN      64
 #define TX_FEE          1      /* coins deducted per confirmed reward tx */
 #define POOL_FEE_PCT    2      /* % deducted before pool reward share    */
-#define MINING_REWARD   25     /* coins awarded to the miner             */
+#define MINING_REWARD   25     /* coins awarded to the miner   (Student)          */
 #define MIN_DIFFICULTY  1
 #define MAX_DIFFICULTY  4
 #define DEFAULT_DIFF    2

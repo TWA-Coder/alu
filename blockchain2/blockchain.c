@@ -104,7 +104,7 @@ void blockchain_print(void)
 	int           i   = 0;
 	int           sig_ok;
 
-	printf("\n══════════════════════ CONFIRMED BLOCKCHAIN ══════════════════════\n");
+	printf("\n CONFIRMED BLOCKCHAIN \n");
 	while (cur)
 	{
 		printf("\n  Block #%u\n", cur->block.index);

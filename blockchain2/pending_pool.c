@@ -5,7 +5,7 @@
 
 /**
  * pool_add - Adds a block to the pending pool (linked list FIFO).
- * @block: Pointer to the block to add
+ * @block: Pointer to the block to add the struck
  */
 void pool_add(block_t *block)
 {

@@ -6,7 +6,7 @@
 /* ─── Internal helpers ───────────────────────────────────────── */
 
 /**
- * history_append - Appends one entry to an account's transaction history.
+ * history_append - Appends  one entry to an account's transaction history as one.
  */
 static void history_append(account_t *acc, const char *sender,
 		const char *recipient, uint32_t amount, uint32_t fee,
