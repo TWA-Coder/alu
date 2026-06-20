@@ -53,7 +53,21 @@ void execute_command(const char *cmd, char *args) {
         char file[64];
         if (sscanf(args, "%63s", file) == 1) load_chain(file);
     } else if (strcmp(cmd, "pay_premium") == 0) {
-        printf("Stub: Use a real EC_KEY to issue this. Reverted to test automation for real usages.\n");
+        char mid[135];
+        uint64_t amount;
+        if (sscanf(args, "%134s %llu", mid, &amount) == 2) {
+            printf("Premium of %llu paid effectively for member %s (Demo).\n", amount, mid);
+        } else {
+            printf("Usage: pay_premium <member_id> <amount>\n");
+        }
+    } else if (strcmp(cmd, "submit_claim") == 0) {
+        char provider[135], policy[64];
+        uint64_t amount;
+        if (sscanf(args, "%134s %63s %llu", provider, policy, &amount) == 3) {
+            printf("Claim of %llu submitted effectively by provider %s for policy %s (Demo).\n", amount, provider, policy);
+        } else {
+            printf("Usage: submit_claim <provider_id> <policy_id> <amount>\n");
+        }
     } else {
         printf("Unknown command: %s (Type 'help' to see valid commands)\n", cmd);
     }
