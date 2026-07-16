@@ -1,10 +1,5 @@
-// const { expect } = require("chai");
-// const { ethers } = require("hardhat");
-import { expect } from "chai";
-import hre from "hardhat";
-const { ethers } = hre;
-
-
+const { expect } = require("chai");
+const { ethers } = require("hardhat");
 
 describe("ALU Logo Blockchain Project", function () {
   let registry, token;

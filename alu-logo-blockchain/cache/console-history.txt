@@ -1,0 +1,3 @@
+await ethers.getSigners()
+exit
+await ethers.provider.getNetwork()

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALU Logo Registry</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div class="logo">
+          <h1><span class="gradient-text">ALU</span> Logo Registry</h1>
+        </div>
+        <button id="connectWalletBtn" class="btn primary">Connect Wallet</button>
+      </header>
+
+      <main class="container">
+        <!-- Display connection status / warnings -->
+        <div id="statusMessage" class="status-message hidden"></div>
+
+        <section class="card glass">
+          <h2>Register Asset</h2>
+          <p>Register a new ALU logo on the blockchain.</p>
+          <form id="registerForm">
+            <div class="input-group">
+              <label for="regName">Logo Name</label>
+              <input type="text" id="regName" placeholder="e.g., ALU Official 2026" required />
+            </div>
+            <div class="input-group">
+              <label for="regFileType">File Type</label>
+              <input type="text" id="regFileType" placeholder="e.g., SVG, PNG" required />
+            </div>
+            <div class="input-group">
+              <label for="regHash">Content Hash (Bytes32)</label>
+              <input type="text" id="regHash" placeholder="0x..." required />
+            </div>
+            <button type="submit" class="btn submit-btn" id="registerBtn">Register Logo</button>
+          </form>
+        </section>
+
+        <section class="card glass hidden" id="verifySection">
+          <h2>Verify Logo Integrity</h2>
+          <p>Check if a logo hash is authentic.</p>
+          <form id="verifyForm">
+            <div class="input-group">
+              <label for="veriTokenId">Token ID</label>
+              <input type="number" id="veriTokenId" placeholder="e.g., 0" required min="0" />
+            </div>
+            <div class="input-group">
+              <label for="veriHash">Content Hash (Bytes32)</label>
+              <input type="text" id="veriHash" placeholder="0x..." required />
+            </div>
+            <button type="submit" class="btn submit-btn" id="verifyBtn">Verify</button>
+          </form>
+          <div id="verifyResult" class="result-box hidden"></div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
